@@ -1,0 +1,18 @@
+SECTION .TEXT
+    GLOBAL CMAIN
+    GLOBAL FILTRO
+CMAIN:
+    MOV RCX, RDX
+    MOV RBX, 0
+    MOV R9, 0
+FILTRO:
+    MOV RAX, 0
+    MOV RDX, 0 
+    MOV RAX, [RDI + R9]
+    MOV RDX, [RSI + R9] 
+    MUL RDX
+    ADD RBX, RAX
+    ADD R9, 4
+    LOOP FILTRO
+    MOV RAX,RBX
+    RET
